@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Alpi</title>
+    <style>
+        /* Import Font Poppins */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        /* Tampilan Rapi */
+        .neat-theme {
+            background-image: url('company.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #1a3c34;
+            font-family: 'Poppins', sans-serif;
+        }
+        .neat-theme .container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            padding: 30px;
+        }
+        .neat-theme h1 {
+            color: #28a745;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2.8em;
+            font-weight: 700;
+        }
+        .neat-theme h2 {
+            color: #000000;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.9em;
+            font-weight: 600;
+        }
+        .neat-theme h3 {
+            cursor: pointer;
+            margin-top: 25px;
+            font-size: 1.5em;
+            color: #ffc107;
+            transition: color 0.3s;
+        }
+        .neat-theme h3:hover {
+            color: #e0a800;
+        }
+        .neat-theme p, .neat-theme ul {
+            line-height: 1.7;
+            margin: 12px 0;
+            font-size: 1em;
+            color: #1a3c34;
+        }
+        .neat-theme .section-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .neat-theme button {
+            background-color: #ffffff;
+            color: #28a745;
+            border: 2px solid #28a745;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .neat-theme button:hover {
+            background-color: #e6f4ea;
+            color: #218838;
+        }
+        .neat-theme button:active {
+            background-color: #28a745;
+            color: #ffffff;
+            border-color: #28a745;
+        }
+
+        /* Tampilan Berantakan */
+        .messy-theme {
+            background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #00ff00;
+            font-family: 'Comic Sans MS', cursive;
+        }
+        .messy-theme .container {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+        }
+        .messy-theme h1 {
+            color: #ffff00;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 3.2em;
+            text-shadow: 3px 3px #00ff00;
+        }
+        .messy-theme h2 {
+            color: #000000;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+        }
+        .messy-theme h3 {
+            cursor: pointer;
+            margin-top: 25px;
+            font-size: 1.7em;
+            color: #00ff00;
+            transition: color 0.3s;
+        }
+        .messy-theme h3:hover {
+            color: #ffff00;
+        }
+        .messy-theme p, .messy-theme ul {
+            line-height: 1.3;
+            margin: 8px 0;
+            font-size: 1.2em;
+            color: #00ff00;
+        }
+        .messy-theme .section-content {
+            background-color: rgba(255, 0, 0, 0.8);
+            padding: 15px;
+            border: 4px solid #ffff00;
+            margin-bottom: 20px;
+        }
+        .messy-theme button {
+            background-color: #00ff00;
+            color: #ffff00;
+            border: 3px solid #ff0000;
+            padding: 15px 30px;
+            border-radius: 0;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            font-size: 1.2em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .messy-theme button:hover {
+            background-color: #ffff00;
+            color: #00ff00;
+        }
+
+        /* Styling untuk galeri gambar */
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .image-gallery img {
+            max-width: 200px;
+            height: auto;
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .messy-theme .image-gallery img {
+            border: 3px solid #ffff00;
+        }
+
+        /* Kontainer Umum */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="neat-theme">
+    <div class="container">
+        <h1>LAPORAN TEORI</h1>
+        <h2>Alfiyah Faza Ilyana | 202332082</h2>
+
+        <button onclick="toggleTheme()">Ganti ke Tampilan Berantakan</button>
+
+        <div class="section">
+            <h3 onclick="toggleSection(this)">A. Mengapa Menggunakan CSS dan JavaScript dalam Pemrograman Web?</h3>
+            <div class="section-content">
+                <p><strong>CSS</strong> digunakan untuk mengatur tampilan<strong> visual dan gaya elemen</strong> halaman web. Seperti mengubah Warna, Font, Tata Letak, Responsivitas (tampilan desktop, tablet, ponsel).</p>
+                <p><strong>JavaScript</strong> digunakan untuk menambahkan<strong> interaktivitas dan fungsionalitas</strong> halaman web. Seperti mengatur Animasi dan Efek Visual, Reaksi Elemen saat di Klik, meningkatkan UX web, dan menampilkan atau memvalidasi form ketika diisi, dan mengelola fitur web yang canggih.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 onclick="toggleSection(this)">B. Bagaimana CSS dan JavaScript Dapat Diintegrasikan dalam Pemrograman Web?</h3>
+            <div class="section-content">
+                <p><strong>CSS (tampilan elemen)</strong> pada <u>Internal</u> di dalam tag <i>head</i>, pada <u>Eksternal</u> file terpisah <i>.css</i> dan dihubungkan dengan via <i>link href</i>, dan <u>Inline</u> di atribut <u>style</u> (tidak disarankan). </p>
+                <p><strong>JavaScript (dinamika manipulasi elemen)</strong> pada <u>Internal</u> di dalam tag <i>script</i>, pada <u>Eksternal</u> file terpisah <i>.js</i> dihubungkan dengan via <i>script src</i>, atau pada <u>Event-Driven</u> dengan <i>onclick</i> atau input pengguna. </p>                
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 onclick="toggleSection(this)">C. Keuntungan Menggunakan CSS dan JavaScript</h3>
+            <div class="section-content">
+                <p><strong>Keuntungan CSS</strong></p>
+                <ul>
+                    <li><strong>Konsistensi dan Estetika</strong> (membuat tampilan website seragam di semua perangkat dan browser, mudah diperbarui, serta menambah daya tarik dengan desain yang keren).</li>
+                    <li><strong>Responsivitas</strong> (memastikan website tampil bagus di berbagai ukuran layar, seperti ponsel atau laptop, dengan bantuan media queries).</li>
+                    <li><strong>Efisiensi</strong> (mengurangi kode berulang menggunakan kelas dan selektor, memisahkan desain dari HTML, sehingga mengelola gaya jadi lebih gampang).</li>
+                </ul>
+                <p><strong>Keuntungan JavaScript</strong></p>
+                <ul>
+                    <li><strong>Interaktivitas dan Dinamis</strong> (membuat website lebih hidup dengan fitur seperti dropdown menu atau validasi formulir, dan bisa memperbarui konten tanpa perlu memuat ulang halaman menggunakan teknik seperti AJAX).</li>
+                    <li><strong>Fungsionalitas dan Fleksibilitas</strong> (mendukung pembuatan aplikasi web canggih, bisa digunakan di sisi klien maupun server (Node.js), serta cocok untuk berbagai browser dan perangkat).</li>
+                    <li><strong>Efisiensi dan Ekosistem Luas</strong> (menghemat waktu dengan mengurangi kebutuhan reload halaman, ditambah banyak library dan framework seperti React atau Vue yang mempermudah pengembangan).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 onclick="toggleSection(this)">D. Keuntungan Menggunakan Bootstrap</h3>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Komponen siap pakai</strong> (karena ada banyak elemen keren seperti tombol, navbar, formulir, atau card yang tinggal pakai, jadi hemat waktu buat desain).</li>
+                    <li><strong>Efisien waktu</strong> (karena kombinasi class CSS dan JavaScript sederhana bikin coding lebih cepat tanpa mulai dari nol).</li>
+                    <li><strong>Tampilan responsif</strong> (karena website langsung nyaman dilihat di semua perangkat, dari HP sampai laptop, tanpa ribet).</li>
+                    <li><strong>Dokumentasi dan komunitas besar</strong> (karena dokumentasinya jelas, banyak tutorial, dan komunitasnya besar, jadi gampang cari bantuan).</li>
+                    <li><strong>Mudah dikustomisasi</strong> (karena gampang diubah sesuai kebutuhan pakai variabel Sass atau tema, cocok buat proyek apa saja).</li>
+                    <li><strong>Tampilan konsisten</strong> (karena semua bagian website kelihatan rapi dan seragam, membuat situs terlihat pro dan premium).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 onclick="toggleSection(this)">E. Contoh Penggunaan Bootstrap</h3>
+            <div class="section-content">
+                <p><strong>Running Bootstrap Navbar</strong></p>
+                <div class="image-gallery">
+                    <img src="foto1.jpg" alt="Navbar awal">
+                    <img src="foto2.jpg" alt="Navbar hamburger device">
+                    <img src="foto3.jpg" alt="Navbar klik search">
+                    <img src="foto4.jpg" alt="Navbar input search">
+                    <img src="foto5.jpg" alt="Navbar klik sub">
+                </div>
+                <p><strong>Fungsinya</strong> untuk menambahkan animasi dan warna berubah ketika kursor diarahkan ataupun ketika di klik pada Navbar. Kita dapat dari Component lalu ke Navbar. Seperti,</p>
+                <ol type="a">
+                    <li>Layar navbar menyesuaikan layar besar (horizontal) atau kecil (hamburger). (gambar 2)</li>
+                    <li>Pada tombol "Search" punya border hijau, "Disabled" abu-abu. (gambar 1)</li>
+                    <li>Jika kursor diarahkan ke tombolnya akan fillnya akan berwarna hijau yang awalnya tombolnya fill nya ber fill putih dan berborder hijau. (gambar 1 dan 3)</li>
+                    <li>Jika di klik tombolnya akan berborder biru menyala dengan fill putih seperti ketikan kelap – kelip.  (gambar 4)</li>
+                    <li>Lalu pada tab Navbar Dropdown diklik maka akan muncul 3 sub menu yang jika kursornya diarahkan ke salah satu sub menu tersebut maka akan terlihat ber fill abu – abu. (gambar 5).</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(element) {
+            const content = element.nextElementSibling;
+            if (!content.classList.contains('hidden')) {
+                if (confirm('Apakah anda ingin menyembunyikan isi bagian ini?')) {
+                    content.classList.add('hidden');
+                }
+            } else {
+                content.classList.remove('hidden');
+            }
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.querySelector('button');
+            if (body.classList.contains('neat-theme')) {
+                body.classList.remove('neat-theme');
+                body.classList.add('messy-theme');
+                button.textContent = 'Ganti ke Tampilan Rapi';
+            } else {
+                body.classList.remove('messy-theme');
+                body.classList.add('neat-theme');
+                button.textContent = 'Ganti ke Tampilan Berantakan';
+            }
+        }
+    </script>
+</body>
+</html> 
